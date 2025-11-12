@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RoomAlchemy – AI Interior Design Visualizer</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__content">
+        <h1>RoomAlchemy</h1>
+        <p>Transform real rooms into stunning designs powered by AI.</p>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="uploader" aria-labelledby="upload-heading">
+        <h2 id="upload-heading">Upload your room</h2>
+        <div id="drop-zone" class="drop-zone" role="button" tabindex="0" aria-label="Upload room photo">
+          <input id="file-input" type="file" accept="image/jpeg,image/png,image/webp" hidden />
+          <p><strong>Drag &amp; drop</strong> a photo or <span class="link" id="browse-link">browse your files</span></p>
+          <p class="hint">JPEG, PNG, or WEBP up to 8MB</p>
+        </div>
+      </section>
+
+      <section class="styles" aria-labelledby="style-heading">
+        <h2 id="style-heading">Choose a style</h2>
+        <div class="style-grid" role="radiogroup" aria-label="Design styles">
+          <button class="style" data-style="Minimalist" role="radio" aria-checked="false">Minimalist</button>
+          <button class="style" data-style="Japandi" role="radio" aria-checked="false">Japandi</button>
+          <button class="style" data-style="Cozy Scandinavian" role="radio" aria-checked="false">Cozy Scandinavian</button>
+          <button class="style" data-style="Luxury Modern" role="radio" aria-checked="false">Luxury Modern</button>
+          <button class="style" data-style="Cyberpunk Neon" role="radio" aria-checked="false">Cyberpunk Neon</button>
+          <button class="style" data-style="Warm Boho" role="radio" aria-checked="false">Warm Boho</button>
+        </div>
+      </section>
+
+      <section class="actions">
+        <button id="redesign-btn" class="primary" disabled>Redesign my room</button>
+        <div class="status" aria-live="polite" role="status" id="status">Select a photo and style to begin.</div>
+        <div class="progress" aria-hidden="true" id="progress" hidden>
+          <span class="spinner" aria-hidden="true"></span>
+          <span>Rendering magic…</span>
+        </div>
+      </section>
+
+      <section class="result" aria-labelledby="result-heading" hidden>
+        <div class="result__header">
+          <h2 id="result-heading">Before &amp; After</h2>
+          <button id="download-btn" class="secondary" disabled>Download redesigned image</button>
+        </div>
+        <div class="slider" id="slider" aria-label="Before and after comparison slider">
+          <div class="slider__image slider__image--before">
+            <img id="before-img" alt="Original room" />
+          </div>
+          <div class="slider__image slider__image--after">
+            <img id="after-img" alt="Redesigned room" />
+          </div>
+          <input type="range" id="slider-input" min="0" max="100" value="50" aria-label="Reveal redesigned image" />
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Securely powered by RoomAlchemy. No API keys stored on the client.</p>
+    </footer>
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>
